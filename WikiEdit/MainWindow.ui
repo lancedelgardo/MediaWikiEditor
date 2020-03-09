@@ -6,28 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>791</height>
+    <width>1302</width>
+    <height>894</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout"/>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="inputWidget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="outputWidget" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPlainTextEdit" name="plainTextEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>826</width>
+     <width>1302</width>
      <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
     <property name="title">
-     <string>Menu</string>
+     <string>Datei</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="actionSaveModel"/>
+    <addaction name="actionLoad"/>
+   </widget>
+   <widget class="QMenu" name="menuBearbeiten">
+    <property name="title">
+     <string>Bearbeiten</string>
     </property>
     <addaction name="addTextfield"/>
     <addaction name="addTable"/>
@@ -35,6 +66,7 @@
     <addaction name="addPicture"/>
    </widget>
    <addaction name="menuMenu"/>
+   <addaction name="menuBearbeiten"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -67,11 +99,54 @@
    </property>
   </action>
   <action name="generateOutput">
+   <property name="icon">
+    <iconset theme="document-print"/>
+   </property>
    <property name="text">
     <string>Ausgabe Generieren</string>
    </property>
    <property name="toolTip">
     <string>Ausgabe Generieren</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset theme="document-save"/>
+   </property>
+   <property name="text">
+    <string>Speichern</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="icon">
+    <iconset theme="document-save-as"/>
+   </property>
+   <property name="text">
+    <string>Speichern Unter</string>
+   </property>
+  </action>
+  <action name="actionSaveModel">
+   <property name="icon">
+    <iconset theme="document-save-as"/>
+   </property>
+   <property name="text">
+    <string>Als Vorlage speichern</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="icon">
+    <iconset theme="document-open"/>
+   </property>
+   <property name="text">
+    <string>Laden</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset theme="document-new"/>
+   </property>
+   <property name="text">
+    <string>Neu</string>
    </property>
   </action>
  </widget>

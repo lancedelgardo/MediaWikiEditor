@@ -34,7 +34,13 @@ SOURCES += \
     Widgets/AddTableWidget.cpp \
     Widgets/TableWidget.cpp \
     Data/TableData.cpp \
-    Dialogs/EditTableDialog.cpp
+    Dialogs/EditTableDialog.cpp \
+    Data/TableRowData.cpp \
+    Widgets/LayoutItem.cpp \
+    Widgets/PushButton.cpp \
+    Widgets/TextEdit.cpp \
+    Widgets/CheckBox.cpp \
+    Controller/OutputGenerator.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -46,7 +52,13 @@ HEADERS += \
     Widgets/AddTableWidget.h \
     Widgets/TableWidget.h \
     Data/TableData.h \
-    Dialogs/EditTableDialog.h
+    Dialogs/EditTableDialog.h \
+    Data/TableRowData.h \
+    Widgets/LayoutItem.h \
+    Widgets/PushButton.h \
+    Widgets/TextEdit.h \
+    Widgets/CheckBox.h \
+    Controller/OutputGenerator.h
 
 FORMS += \
         MainWindow.ui

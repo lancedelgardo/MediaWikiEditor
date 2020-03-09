@@ -17,6 +17,12 @@ class WidgetsController : public QObject
 
     InputWidget *getInputWidget() const;
 
+    void save(const QString &filename);
+    void saveModel(const QString &filename);
+    void load(const QString &filename);
+
+    void clearAll();
+
   signals:
 
   public slots:

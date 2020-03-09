@@ -28,7 +28,11 @@ EditTableDialog::EditTableDialog(TableWidget *input, QWidget *parent) : QDialog(
     connect(addColumn, SIGNAL(pressed()), this, SLOT(addColumnPressed()));
 }
 
-void EditTableDialog::savePressed() { accept(); }
+void EditTableDialog::savePressed()
+{
+    tableWidget->setHeaderListToData();
+    accept();
+}
 
 void EditTableDialog::addRowPressed() { tableWidget->addRow(); }
 

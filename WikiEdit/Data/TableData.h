@@ -1,6 +1,8 @@
 #ifndef TABLEDATA_H
 #define TABLEDATA_H
 
+#include "TableRowData.h"
+
 #include <QObject>
 
 class TableData : public QObject
@@ -12,14 +14,31 @@ class TableData : public QObject
     void addColumn(const QString &name);
     int getColumns();
 
-    QList< QString > getColumnNames() const;
+    QStringList getHeaderLabels() const;
+    void setHeaderLabels(const QStringList &value);
+
+    int getRowCount() const;
+    void setRowCount(int value);
+
+    int getColumnCount() const;
+    void setColumnCount(int value);
+
+    QList< TableRowData * > getCellData() const;
+    void addCellData(TableRowData *data);
+    TableRowData *getCellData(int row, int column);
+
+    void clearCellData();
 
   signals:
 
   public slots:
 
   private:
-    QList< QString > columnNames;
+    QStringList headerLabels;
+    QList< TableRowData * > cellData;
+
+    int rowCount = 0;
+    int columnCount = 0;
 };
 
 #endif  // TABLEDATA_H

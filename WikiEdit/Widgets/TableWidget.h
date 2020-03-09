@@ -14,10 +14,18 @@ class TableWidget : public QTableWidget
 
     void addRow();
     void addColumn(const QString &name);
+    void addRow(const QString &text);
+
+    QStringList setHeaderListToData();
+
+    void setRowToData();
 
   signals:
 
   public slots:
+
+  private slots:
+    void onCellChanged(int row, int column);
 
   private:
     TableData *tableData = Q_NULLPTR;

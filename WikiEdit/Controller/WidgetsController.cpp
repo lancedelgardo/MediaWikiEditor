@@ -8,7 +8,6 @@
 #include "Widgets/TableWidget.h"
 #include "Dialogs/EditTableDialog.h"
 
-
 WidgetsController::WidgetsController(QObject *parent) : QObject(parent)
 {
     inputWidget = new InputWidget();
@@ -64,6 +63,14 @@ void WidgetsController::boolAdded(const QString &name) { inputWidget->addBool(na
 void WidgetsController::tableAdded(const QString &name) { inputWidget->addTable(name); }
 
 InputWidget *WidgetsController::getInputWidget() const { return inputWidget; }
+
+void WidgetsController::save(const QString &filename) { inputWidget->save(filename); }
+
+void WidgetsController::saveModel(const QString &filename) { inputWidget->saveModel(filename); }
+
+void WidgetsController::load(const QString &filename) { inputWidget->load(filename); }
+
+void WidgetsController::clearAll() { inputWidget->clearAll(); }
 
 void WidgetsController::onTableButtonPressed(TableData *data)
 {

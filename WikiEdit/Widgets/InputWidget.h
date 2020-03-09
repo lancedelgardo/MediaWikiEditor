@@ -2,12 +2,14 @@
 #define INPUTWIDGET_H
 
 #include "Data/TableData.h"
+#include "LayoutItem.h"
 
 #include <QObject>
 #include <QWidget>
 #include <QFormLayout>
 #include <QPushButton>
 #include <QMap>
+#include <QJsonObject>
 
 class InputWidget : public QWidget
 {
@@ -19,6 +21,23 @@ class InputWidget : public QWidget
     void addBool(const QString &name);
     void addTable(const QString &name);
 
+    void insertTextField();
+    void insertBool();
+    void insertTable();
+
+    void save(const QString &filename);
+    void saveModel(const QString &filename);
+    bool load(const QString &filename);
+
+    void clearAll();
+
+    QList< LayoutItem * > getWidgets() const;
+
+    QMap< LayoutItem *, TableData * > getTableDatas() const;
+
+    void toJsonModel(QJsonObject &json);
+
+
   signals:
     void s_tableButtonPressed(TableData *data);
 
@@ -29,10 +48,13 @@ class InputWidget : public QWidget
     void onTableButtonPressed();
 
   private:
+    void fromJson(const QJsonObject &json);
+    void toJson(QJsonObject &json);
+
     QFormLayout *formLayout = Q_NULLPTR;
 
-    QList< QWidget * > widgets;
-    QMap< QPushButton *, TableData * > tableDatas;
+    QList< LayoutItem * > widgets;
+    QMap< LayoutItem *, TableData * > tableDatas;
 };
 
 #endif  // INPUTWIDGET_H
